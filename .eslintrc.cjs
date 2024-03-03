@@ -2,6 +2,11 @@ module.exports = {
   extends: [
     "plugin:astro/recommended",
   ],
+    parserOptions: {
+    tsconfigRootDir: __dirname,
+    sourceType: 'module',
+    ecmaVersion: 'latest'
+  },
   overrides: [
     {
       // Define the configuration for `.astro` file.
