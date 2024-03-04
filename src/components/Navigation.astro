@@ -1,3 +1,9 @@
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+---
+import ButtonLink from "src/components/ButtonLink.astro";
+---
+
+<nav class="flex items-center gap-5 justify-center mb-6 p-4">
+  <ButtonLink href="/" label="Home" />
+  <ButtonLink href="/about/" label="About" />
+  <ButtonLink href="/blog/" label="Blog" />
+</nav>

@@ -1,7 +1,18 @@
 ---
+import { Image } from "astro:assets";
 import Wrapper from "src/layouts/Wrapper.astro";
+import avatar from 'src/img/avatar.jpeg'
+const pageTitle = "xexex98's blog";
 ---
 
-<Wrapper title="xexex98's blog">
-  <p>Hello World</p>
+<Wrapper title={pageTitle}>
+  <div class="grid grid-cols-[1fr_150px] gap-4 items-center">
+    <p>
+      Hi everyone, my name is Arkady Fedorov. I grew up and lived in a village,
+      then went to Kazan Federal University, after graduating I moved to Moscow,
+      where I started working as a frontend developer.
+    </p>
+    <Image src={avatar} alt="Avatar image." class=''/>
+  </div>
+
 </Wrapper>
