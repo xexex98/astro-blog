@@ -1,9 +1,9 @@
 ---
-title: "My First Blog Post"
+title: "My First 3 Blog Post"
 pubDate: 2022-07-01
-description: "Atomic Habits"
+description: "Atomic Habits Atomic HabitsAtomic HabitsAtomic HabitsAtomic HabitsAtomic HabitsAtomic Habits"
 author: "Arkady Fedorov"
-tags: ["habits", "blogging", "learning in public"]
+tags: ["habits", "blogging"]
 ---
 
 # <p class='text-3xl'>**Atomic habits - James Clear**</p>

@@ -1,5 +1,5 @@
 ---
-title: "My First Blog Post"
+title: "My First 2 Blog Post"
 pubDate: 2022-07-01
 description: "Atomic Habits"
 author: "Arkady Fedorov"

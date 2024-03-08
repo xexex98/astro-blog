@@ -1,0 +1,10 @@
+---
+import { getCollection } from "astro:content";
+import Post from "src/components/Post.astro";
+
+const allPosts = await getCollection("posts");
+---
+
+<div class="flex flex-col gap-2">
+  {allPosts.map((post) => <Post post={post} />)}
+</div>
