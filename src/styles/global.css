@@ -1,43 +1,12 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"); */
-/* @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap'); */
+@import url('./fonts.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 @layer base {
-  @font-face {
-    font-family: "Ubuntu";
-    src: url("../../public/fonts/Ubuntu-Light.ttf") format("ttf light");
-    font-weight: 300;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "Ubuntu";
-    src: url("../../public/fonts/Ubuntu-Regular.ttf") format("ttf regular");
-    font-weight: 400;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "Ubuntu";
-    src: url("../../public/fonts/Ubuntu-Medium.ttf") format("ttf medium");
-    font-weight: 500;
-    font-style: normal;
-  }
 
-  @font-face {
-    font-family: "Ubuntu";
-    src: url("../../public/fonts/Ubuntu-Bold.ttf") format("ttf bold");
-    font-weight: 700;
-    font-style: normal;
-  }
-
-  @font-face {
-    font-family: "Bebas";
-    src: url("../../public/fonts/BebasNeue-Regular.ttf") format("ttf bold2");
-    font-style: normal;
-    font-weight: 400;
-    font-display: swap;
-  }
   html {
-    font-family: "Bebas", sans;
+    font-family: "Ubuntu", system-ui, sans-serif;
   }
 }
