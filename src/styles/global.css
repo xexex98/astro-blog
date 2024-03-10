@@ -6,7 +6,8 @@
 
 @layer base {
 
-  html {
+  html,
+  body {
     font-family: "Ubuntu", system-ui, sans-serif;
   }
 }

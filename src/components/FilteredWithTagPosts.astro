@@ -1,0 +1,11 @@
+---
+import Post from "src/components/Post.astro";
+
+const { posts } = Astro.props;
+---
+
+<ul>
+  <li class="flex flex-col gap-2">
+    {posts.map((post) => <Post post={post} />)}
+  </li>
+</ul>

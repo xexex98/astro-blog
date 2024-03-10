@@ -1,13 +1,14 @@
 ---
-import About from "src/components/About.astro";
+import { getCollection } from "astro:content";
 import AllPosts from "src/components/AllPosts.astro";
 import Tags from "src/components/Tags.astro";
+
 import Wrapper from "src/layouts/Wrapper.astro";
-const pageTitle = "xexex98's blog";
+
+const pageTitle = "Blog";
 ---
 
 <Wrapper title={pageTitle}>
-  <About />
   <Tags />
   <AllPosts />
 </Wrapper>

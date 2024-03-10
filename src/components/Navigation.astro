@@ -1,9 +1,43 @@
 ---
 import ButtonLink from "src/components/ButtonLink.astro";
+
+const delimiters = [
+  " ",
+  ",",
+  ".",
+  "/",
+  "\\",
+  "|",
+  "^",
+  "&",
+  ">",
+  "<",
+  "_",
+  "~",
+  '%',
+  '+'
+];
+
+const randomDelimeter =
+  delimiters[Math.floor(Math.random() * delimiters.length)];
+
+const links = {
+  Home: "/",
+  Blog: "/blog",
+};
+
+const isNotLast = (i: number) => i !== Object.keys(links).length - 1;
 ---
 
-<nav class="flex items-center gap-5 justify-center mb-6 p-4">
-  <ButtonLink href="/" label="Home" />
-  <ButtonLink href="/about/" label="About" />
-  <ButtonLink href="/blog/" label="Blog" />
+<nav class="flex items-center justify-end mb-6 p-4">
+  {
+    Object.entries(links).map(([label, href], i) => {
+      return (
+        <>
+          <ButtonLink href={href} label={label} />
+          {isNotLast(i) && <p class="w-5 text-center">{randomDelimeter}</p>}
+        </>
+      );
+    })
+  }
 </nav>
