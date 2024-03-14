@@ -1,18 +1,26 @@
 ---
+import Link from "src/img/svg/link.svg?raw";
 const { post } = Astro.props;
 ---
 
 <a
   href={"/posts/" + post.slug}
-  class="hover:scale-[1.005] ease-in-out duration-300"
+  class="ease-in-out duration-300 hover:-translate-y-0.5"
 >
-  <article>
-    <h3 class="text-xl font-bold">{post.data.title}</h3>
-    <p class="text-sm opacity-50 -mt-0.5">
-      {post.data.pubDate.toString().slice(0, 10)}
-    </p>
-    <p class="overflow-hidden text-ellipsis whitespace-nowrap w-10/12">
-      {post.data.description}
-    </p>
+  <article class="border border-black p-2 rounded">
+    <div class="flex justify-between items-center overflow-hidden">
+      <div class="overflow-hidden">
+        <h3 class="text-xl font-bold">{post.data.title}</h3>
+        <p class="text-sm opacity-50 -mt-0.5">
+          {post.data.pubDate.toString().slice(0, 10)}
+        </p>
+        <p class="overflow-hidden text-ellipsis whitespace-nowrap w-10/12">
+          {post.data.description}
+        </p>
+      </div>
+      <div>
+        <Fragment set:html={Link} />
+      </div>
+    </div>
   </article>
 </a>

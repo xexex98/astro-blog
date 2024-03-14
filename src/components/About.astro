@@ -1,31 +1,10 @@
 ---
-const messages = ["Hej", "Hallo", "Hola", "Habari", "Hello", "Привет", "Hi"];
-const randomMessage = () =>
-  messages[Math.floor(Math.random() * messages.length)];
+import Hello from "src/components/Hello.astro";
 ---
 
-<div class="flex">
-  <div>
-    <div class="flex gap-1">
-      <h3>Hello I'm Arkady!</h3>
-      <p class="show-about arrow rotate-180">&dArr;</p>
-    </div>
-    <p class="about">
-      <span class="text-xl text-purple-500">{randomMessage()}</span>, I am a
-      Front End Developer with over 3 years of experience in Internet. I'm
-      currently working with React and Astro. Outside of work, I enjoy reading
-      books, playing sports, and learning some programming things.
-    </p>
-  </div>
-</div>
-
-<script>
-  const about = document.querySelector(".about");
-  const arrow = document.querySelector(".arrow");
-  const showAbout = document.querySelector(".show-about");
-
-  showAbout?.addEventListener("click", () => {
-    about?.classList.toggle("hidden");
-    arrow?.classList.toggle("rotate-180");
-  });
-</script>
+<Hello />
+<p class="about py-3">
+  I am a Front End Developer with over 3 years of experience in Internet. I'm
+  currently working with React and Astro. Outside of work, I enjoy reading
+  books, playing sports, and learning some programming things.
+</p>

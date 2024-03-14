@@ -14,8 +14,8 @@ const delimiters = [
   "<",
   "_",
   "~",
-  '%',
-  '+'
+  "%",
+  "+",
 ];
 
 const randomDelimeter =
@@ -26,18 +26,38 @@ const links = {
   Blog: "/blog",
 };
 
-const isNotLast = (i: number) => i !== Object.keys(links).length - 1;
+const socials = { Telegram: "", Gmail: "", Mail: "" };
+
+const isNotLast = (i: number, obj: {}) => i !== Object.keys(obj).length - 1;
 ---
 
-<nav class="flex items-center justify-end mb-6 p-4">
-  {
-    Object.entries(links).map(([label, href], i) => {
-      return (
-        <>
-          <ButtonLink href={href} label={label} />
-          {isNotLast(i) && <p class="w-5 text-center">{randomDelimeter}</p>}
-        </>
-      );
-    })
-  }
+<nav class="flex justify-between py-4">
+  <div class="flex items-center">
+    {
+      Object.entries(socials).map(([label, href], i) => {
+        return (
+          <>
+            <ButtonLink href={href} label={label} />
+            {isNotLast(i, socials) && (
+              <p class="w-5 text-center">{randomDelimeter}</p>
+            )}
+          </>
+        );
+      })
+    }
+  </div>
+  <div class="flex items-center">
+    {
+      Object.entries(links).map(([label, href], i) => {
+        return (
+          <>
+            <ButtonLink href={href} label={label} />
+            {isNotLast(i, links) && (
+              <p class="w-5 text-center">{randomDelimeter}</p>
+            )}
+          </>
+        );
+      })
+    }
+  </div>
 </nav>
