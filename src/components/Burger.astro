@@ -1,0 +1,56 @@
+---
+import ButtonLink from "src/components/ButtonLink.astro";
+interface Props {
+  links: { [key: string]: string };
+}
+const { links } = Astro.props;
+---
+
+<div class="text-right">
+  <div class="h-[24px] sm:hidden relative">
+    <button class="hamburger hamburger--vortex" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <ul
+      id="menu"
+      class="absolute right-0 bg-purple-500 flex-col hidden rounded"
+    >
+      {
+        Object.entries(links).map(([label, href], i) => {
+          return (
+            <ButtonLink href={href} label={label} aClass="text-sm px-5 py-1" />
+          );
+        })
+      }
+    </ul>
+  </div>
+</div>
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const burger = document.querySelector(".hamburger");
+    const menu = document.getElementById("menu");
+
+    burger?.addEventListener("click", () => {
+      burger?.classList.toggle("is-active");
+      if (menu?.classList.contains("flex")) {
+        menu?.classList.replace("flex", "hidden");
+      } else {
+        menu?.classList.replace("hidden", "flex");
+      }
+    });
+    document.addEventListener("click", (e) => {
+      if (
+        menu &&
+        burger &&
+        menu?.classList.contains("flex") &&
+        !menu.contains(e.target as Node) &&
+        !burger.contains(e.target as Node)
+      ) {
+        menu?.classList.replace("flex", "hidden");
+        burger?.classList.toggle("is-active");
+      }
+    });
+  });
+</script>
