@@ -2,9 +2,12 @@
 interface Props {
   href: string;
   label: string;
+  aClass?: string;
 }
 
-const { href, label } = Astro.props;
+const { href, label, aClass = "" } = Astro.props;
 ---
 
-<a class="hover:opacity-50 hover:scale-105 px-2" href={href}>{label}</a>
+<a class={`hover:opacity-50 hover:scale-105 ${aClass} `} href={href}>
+  {label}
+</a>

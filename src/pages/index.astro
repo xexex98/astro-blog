@@ -1,6 +1,7 @@
 ---
 import About from "src/components/About.astro";
 import AllPosts from "src/components/AllPosts.astro";
+import ButtonLink from "src/components/ButtonLink.astro";
 import Tags from "src/components/Tags.astro";
 import Wrapper from "src/layouts/Wrapper.astro";
 const pageTitle = "xexex98's blog";
@@ -9,13 +10,12 @@ const pageTitle = "xexex98's blog";
 <Wrapper title={pageTitle}>
   <About />
   <Tags />
-  <div class="text-right pb-2">
-    <a
+  <div class="flex pb-2 justify-end">
+    <ButtonLink
       href="/posts"
-      class="text-sm underline decoration-dashed underline-offset-4 hover:opacity-50"
-    >
-      All Posts
-    </a>
+      label="All Posts"
+      aClass="text-sm underline decoration-dashed underline-offset-4"
+    />
   </div>
   <AllPosts />
 </Wrapper>
