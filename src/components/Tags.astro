@@ -6,12 +6,12 @@ const allPosts = await getCollection("posts");
 const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
 ---
 
-<ul class="flex gap-2 py-2">
+<ul class="flex gap-2 flex-wrap">
   {
     uniqueTags.map((tag) => {
       return (
         <li class="tag px-2 py-0.5 rounded">
-          <a href={`/blog/${tag}`}>{tag}</a>
+          <a href={`/posts/${tag}`}>{tag}</a>
         </li>
       );
     })

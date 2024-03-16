@@ -2,7 +2,6 @@
 import Wrapper from "src/layouts/Wrapper.astro";
 import FilteredWithTagPosts from "src/components/FilteredWithTagPosts.astro";
 import { getCollection } from "astro:content";
-import { fade } from "astro:transitions";
 
 export async function getStaticPaths() {
   const allPosts = await getCollection("posts");

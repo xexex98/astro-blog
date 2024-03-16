@@ -1,14 +1,13 @@
 module.exports = {
-  extends: [
-    "plugin:astro/recommended",
-  ],
-    parserOptions: {
+  extends: ["plugin:astro/recommended"],
+  parserOptions: {
     tsconfigRootDir: __dirname,
-    sourceType: 'module',
-    ecmaVersion: 'latest',
+    sourceType: "module",
+    ecmaVersion: "latest",
   },
   overrides: [
     {
+      processor: "astro/client-side-ts",
       // Define the configuration for `.astro` file.
       files: ["*.astro"],
       // Allows Astro components to be parsed.
@@ -25,4 +24,4 @@ module.exports = {
       },
     },
   ],
-}
+};

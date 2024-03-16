@@ -3,7 +3,17 @@ title: "My First Blog Post"
 pubDate: 2022-07-01
 description: "Atomic Habits"
 author: "Arkady Fedorov"
-tags: ["habits", "blogging", "learning in public"]
+tags:
+  [
+    "habits",
+    "blogging",
+    "learning in public",
+    "asd",
+    "qwe",
+    "dsafasdfsadfasd",
+    "1324124sdf",
+    "adfaref3op4k2",
+  ]
 ---
 
 # <p class='text-3xl'>**Atomic habits - James Clear**</p>
