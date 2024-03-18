@@ -5,6 +5,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.text-pur-to-red {
+  @apply from-purple-600 to-red-600 bg-gradient-to-r bg-clip-text text-transparent;
+}
+
 @layer base {
 
   html,
