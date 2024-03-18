@@ -2,11 +2,15 @@
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("posts");
+interface Props {
+  className?: string;
+}
 
 const uniqueTags = [...new Set(allPosts.map((post) => post.data.tags).flat())];
+const { className } = Astro.props;
 ---
 
-<ul class="flex gap-2 flex-wrap">
+<ul class={`flex gap-2 flex-wrap ${className}`}>
   {
     uniqueTags.map((tag) => {
       return (

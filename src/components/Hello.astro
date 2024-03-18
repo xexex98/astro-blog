@@ -1,11 +1,46 @@
 ---
-const messages = ["Hej", "Hallo", "Hola", "Habari", "Hello", "Привет", "Hi"];
+const messages = [
+  "Hello",
+  "Ahoj",
+  "Hej",
+  "Hallo",
+  "Tere",
+  "Hei",
+  "Hallo",
+  "Bonjour",
+  "Hallo",
+  "Dia dhuit",
+  "Ciao",
+  "Sveiki",
+  "Labas",
+  "Cześć",
+  "Hola",
+  "Hej",
+  "Helo",
+];
+
 const randomMessage = () =>
   messages[Math.floor(Math.random() * messages.length)];
 ---
 
 <div class="flex gap-1 py-2">
-  <h3 class="text-3xl font-bold">
+  <h3 class="text-3xl font-bold max-w-fit">
     <span class="text-purple-500">{randomMessage()}</span>, I'm Arkady!
   </h3>
 </div>
+<style>
+  h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 1.5s steps(30, end);
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+</style>

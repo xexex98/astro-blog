@@ -35,18 +35,28 @@ const groupedLinks = { ...links, ...socials };
 
 <nav class="py-4">
   <Burger links={groupedLinks} />
-  <div class="justify-between hidden sm:flex">
-    <ul class="flex items-center">
-      {
-        Object.entries(socials).map(([label, href], i) => {
-          return (
-            <a class="px-1" href={href}>
-              <Icon icon={label} />
-            </a>
-          );
-        })
-      }
-    </ul>
+  <div class="justify-between hidden sm:flex items-center">
+    <div class="group relative">
+      <p
+        class="from-purple-600 to-red-600 bg-gradient-to-r bg-clip-text text-transparent text-sm font-bold opacity-100 group-hover:opacity-0 transition-opacity duration-300"
+      >
+        Links {">>"}
+      </p>
+      <ul
+        class="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute top-0 left-0"
+      >
+        {
+          Object.entries(socials).map(([label, href], i) => {
+            return (
+              <a class="px-1" href={href}>
+                <Icon icon={label} />
+              </a>
+            );
+          })
+        }
+      </ul>
+    </div>
+
     <ul class="flex items-center">
       {
         Object.entries(links).map(([label, href], i) => {
