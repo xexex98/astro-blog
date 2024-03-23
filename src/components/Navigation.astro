@@ -26,7 +26,8 @@ const links = {
   Posts: "/posts",
 };
 
-const socials = { tg: "", gmail: "", github: "" };
+// const socials = { tg: "", gmail: "", github: "" };
+const socials = { gmail: "" };
 
 const isNotLast = (i: number, obj: {}) => i !== Object.keys(obj).length - 1;
 
@@ -46,12 +47,8 @@ const groupedLinks = { ...links, ...socials };
         class="flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 absolute top-0 left-0"
       >
         {
-          Object.entries(socials).map(([label, href], i) => {
-            return (
-              <a class="px-1" href={href}>
-                <Icon icon={label} />
-              </a>
-            );
+          Object.entries(socials).map(([label, href]) => {
+            return <a class="px-1" href={href} />;
           })
         }
       </ul>

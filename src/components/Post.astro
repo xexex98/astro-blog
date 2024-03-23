@@ -3,18 +3,21 @@ import Link from "src/img/svg/link.svg?raw";
 const { post } = Astro.props;
 ---
 
-<a
-  href={"/posts/" + post.slug}
-  class="ease-in-out duration-300 hover:-translate-y-0.5"
->
-  <article class="border border-black p-2 rounded">
-    <div class="flex justify-between items-center overflow-hidden">
+<a href={"/posts/" + post.slug}>
+  <article>
+    <div
+      class="flex items-center justify-between p-6 bg-white border border-gray-200 rounded-lg shadow-sm transform transition duration-300 ease-in-out hover:shadow-md hover:scale-[1.005] hover:translate-x-1 overflow-hidden"
+    >
       <div class="overflow-hidden">
-        <h3 class="text-xl font-bold">{post.data.title}</h3>
-        <p class="text-sm opacity-50 -mt-0.5">
-          {post.data.pubDate.toString().slice(0, 10)}
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900">
+          {post.data.description}
+        </h5>
+        <p class="mb-2 text-sm text-gray-500">
+          Published on {post.data.pubDate.toString().slice(0, 10)}
         </p>
-        <p class="overflow-hidden text-ellipsis whitespace-nowrap w-10/12">
+        <p
+          class="text-gray-700 overflow-hidden text-ellipsis whitespace-nowrap"
+        >
           {post.data.description}
         </p>
       </div>

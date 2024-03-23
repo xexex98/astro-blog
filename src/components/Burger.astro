@@ -18,7 +18,7 @@ const { links } = Astro.props;
       class="absolute right-0 bg-purple-500 flex-col hidden rounded"
     >
       {
-        Object.entries(links).map(([label, href], i) => {
+        Object.entries(links).map(([label, href]) => {
           return (
             <ButtonLink href={href} label={label} aClass="text-sm px-5 py-1" />
           );
@@ -40,7 +40,7 @@ const { links } = Astro.props;
         menu?.classList.replace("hidden", "flex");
       }
     });
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", e => {
       if (
         menu &&
         burger &&
