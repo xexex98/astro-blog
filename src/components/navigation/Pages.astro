@@ -1,43 +1,26 @@
 ---
 import ButtonLink from "src/components/ButtonLink.astro";
-
-const delimiters = [
-  " ",
-  ",",
-  ".",
-  "/",
-  "\\",
-  "|",
-  "^",
-  "&",
-  ">",
-  "<",
-  "_",
-  "~",
-  "%",
-  "+",
-];
-const randomDelimeter =
-  delimiters[Math.floor(Math.random() * delimiters.length)];
-const isNotLast = (i: number, obj: {}) => i !== Object.keys(obj).length - 1;
-
 interface Props {
   pages: { [key: string]: string };
 }
 const { pages } = Astro.props;
 ---
 
-<ul class="flex items-center">
+<>
   {
-    Object.entries(pages).map(([label, href], i) => {
+    Object.entries(pages).map(([label, href]) => {
       return (
-        <>
-          <ButtonLink href={href} label={label} />
-          {isNotLast(i, pages) && (
-            <p class="w-5 text-center">{randomDelimeter}</p>
-          )}
-        </>
+        <li class="hover:text-primary-foreground m-auto">
+          <ButtonLink
+            href={href}
+            ariaLabel={label}
+            title={label}
+            className="text-center"
+          >
+            {label}
+          </ButtonLink>
+        </li>
       );
     })
   }
-</ul>
+</>

@@ -1,29 +1,35 @@
 ---
+import ButtonLink from "src/components/ButtonLink.astro";
 import Icon from "src/components/Icon.astro";
-
 interface Props {
-  socials: { [key: string]: string };
+  socials: {
+    tg: string;
+    gmail: string;
+    github: string;
+  };
 }
 
 const { socials } = Astro.props;
 ---
 
-<ul class="group relative">
-  <p class="opacity-100 transition-opacity duration-300 group-hover:opacity-0">
-    Links <span class="tracking-widest">{">>>"}</span>
-  </p>
+<div class="group relative">
+  <span
+    class="opacity-100 transition-opacity duration-300 group-hover:opacity-0"
+  >
+    Links <span>{"> > >"}</span>
+  </span>
   <ul
-    class="absolute left-0 top-0 flex items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+    class="absolute top-0.5 flex items-center justify-center gap-2
+     opacity-0 transition-opacity duration-300 group-hover:opacity-100"
   >
     {
-      Object.entries(socials).map(([label, href]) => {
-        return (
-          <ul>
-            <a class="px-1" href={href} />
+      Object.entries(socials).map(([label, href]) => (
+        <li>
+          <ButtonLink href={href}>
             <Icon icon={label} />
-          </ul>
-        );
-      })
+          </ButtonLink>
+        </li>
+      ))
     }
   </ul>
-</ul>
+</div>

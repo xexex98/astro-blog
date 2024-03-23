@@ -13,8 +13,8 @@
     --foreground: 210 210 210;
     /* rgb(9 9 11) */
     --primary: 9 9 11;
-    /* rgb(249 95 22) */
-    --primary-foreground: 249 115 22;
+    /* rgb(168 85 247) */
+    --primary-foreground: 168 85 247;
   }
   .dark {
     /* rgb(33 39 55) */
@@ -23,12 +23,14 @@
     --foreground: 0 0% 98%;
     /* rgb(250 250 250) */
     --primary: 250 250 250;
-    /* rgb( 168 85 247) */
-    --primary-foreground: 168 85 247;
+    /* rgb(249 95 22) */
+    --primary-foreground: 249 115 22;
   }
   body {
     @apply bg-background text-primary;
 
-    font-family: "Ubuntu", system-ui, sans-serif;
+    /* font-family: "Ubuntu", system-ui, sans-serif; */
+    /* font-family: "IBM Plex Mono", monospace; */
+    font-family: "Satoshi", sans;
   }
 }

@@ -1,13 +1,15 @@
 ---
 interface Props {
   href: string;
-  label: string;
-  aClass?: string;
+  className?: string;
+  ariaLabel?: string;
+  title?: string;
+  disabled?: boolean;
 }
 
-const { href, label, aClass = "" } = Astro.props;
+const { href, className = "", ariaLabel, title } = Astro.props;
 ---
 
-<a class={` ${aClass} `} href={href}>
-  {label}
+<a {href} class={`group ${className}`} aria-label={ariaLabel} title={title}>
+  <slot />
 </a>

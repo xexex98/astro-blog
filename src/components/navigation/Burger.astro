@@ -20,7 +20,9 @@ const { links } = Astro.props;
       {
         Object.entries(links).map(([label, href]) => {
           return (
-            <ButtonLink href={href} label={label} aClass="text-sm px-5 py-1" />
+            <ButtonLink href={href} title={label} className="text-sm px-5 py-1">
+              {label}
+            </ButtonLink>
           );
         })
       }
