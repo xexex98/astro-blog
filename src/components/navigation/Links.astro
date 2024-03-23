@@ -1,0 +1,29 @@
+---
+import Icon from "src/components/Icon.astro";
+
+interface Props {
+  socials: { [key: string]: string };
+}
+
+const { socials } = Astro.props;
+---
+
+<ul class="group relative">
+  <p class="opacity-100 transition-opacity duration-300 group-hover:opacity-0">
+    Links <span class="tracking-widest">{">>>"}</span>
+  </p>
+  <ul
+    class="absolute left-0 top-0 flex items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+  >
+    {
+      Object.entries(socials).map(([label, href]) => {
+        return (
+          <ul>
+            <a class="px-1" href={href} />
+            <Icon icon={label} />
+          </ul>
+        );
+      })
+    }
+  </ul>
+</ul>

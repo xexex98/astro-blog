@@ -8,6 +8,6 @@ interface Props {
 const { href, label, aClass = "" } = Astro.props;
 ---
 
-<a class={`hover:opacity-50 hover:scale-105 ${aClass} `} href={href}>
+<a class={` ${aClass} `} href={href}>
   {label}
 </a>

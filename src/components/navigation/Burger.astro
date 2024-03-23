@@ -7,7 +7,7 @@ const { links } = Astro.props;
 ---
 
 <div class="text-right">
-  <div class="h-[24px] sm:hidden relative">
+  <div class="relative h-[24px] sm:hidden">
     <button class="hamburger hamburger--vortex" type="button">
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
@@ -15,7 +15,7 @@ const { links } = Astro.props;
     </button>
     <ul
       id="menu"
-      class="absolute right-0 bg-purple-500 flex-col hidden rounded"
+      class="absolute right-0 hidden flex-col rounded bg-purple-500"
     >
       {
         Object.entries(links).map(([label, href]) => {
