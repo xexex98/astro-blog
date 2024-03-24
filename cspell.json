@@ -5,7 +5,9 @@
   "dictionaries": [],
   "words": [
     "astro",
-    "tailwindcss"
+    "astrojs",
+    "tailwindcss",
+    "tsconfigs"
   ],
   "ignoreWords": [],
   "import": []

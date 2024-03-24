@@ -2,22 +2,27 @@
 import About from "src/components/About.astro";
 import AllPosts from "src/components/AllPosts.astro";
 import ButtonLink from "src/components/ButtonLink.astro";
+import Header from "src/components/navigation/Header.astro";
 import Tags from "src/components/Tags.astro";
 import Wrapper from "src/layouts/Wrapper.astro";
+import Main from "src/layouts/Main.astro";
 const pageTitle = "xexex98's blog";
 ---
 
 <Wrapper title={pageTitle}>
-  <About />
-  <div class="py-2">
-    <Tags />
-  </div>
-  <div class="flex justify-end pb-2">
-    <ButtonLink
-      href="/posts"
-      label="All Posts"
-      aClass="text-sm underline decoration-dashed underline-offset-4"
-    />
-  </div>
-  <AllPosts />
+  <Header activeNav="Home" />
+  <Main>
+    <About />
+    <div class="py-2">
+      <Tags />
+    </div>
+    <div class="flex justify-end pb-2">
+      <ButtonLink
+        href="/posts"
+        className="text-primary hover:text-primary-foreground underline decoration-dashed underline-offset-4"
+        >All Posts</ButtonLink
+      >
+    </div>
+    <AllPosts />
+  </Main>
 </Wrapper>

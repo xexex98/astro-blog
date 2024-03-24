@@ -1,8 +1,6 @@
 ---
-import Navigation from "src/components/navigation/Navigation.astro";
-import "../styles/global.css";
 import { ViewTransitions } from "astro:transitions";
-import Theme from "src/components/navigation/Theme.astro";
+import "../styles/global.css";
 interface Props {
   title: string;
 }
@@ -23,10 +21,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <div class="z-10 mx-auto max-w-2xl px-5">
-      <Navigation />
-      <main>
-        <slot />
-      </main>
+      <slot />
     </div>
   </body>
 </html>

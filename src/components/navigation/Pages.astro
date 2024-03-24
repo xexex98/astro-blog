@@ -1,9 +1,12 @@
 ---
 import ButtonLink from "src/components/ButtonLink.astro";
-interface Props {
+
+type Props = {
   pages: { [key: string]: string };
-}
-const { pages } = Astro.props;
+  activeNav?: string;
+};
+
+const { pages, activeNav } = Astro.props;
 ---
 
 <>
@@ -15,7 +18,7 @@ const { pages } = Astro.props;
             href={href}
             ariaLabel={label}
             title={label}
-            className="text-center"
+            className={`text-center ${activeNav === label ? "underline  underline-offset-[6px]" : ""}`}
           >
             {label}
           </ButtonLink>

@@ -4,6 +4,7 @@ import Links from "src/components/navigation/Links.astro";
 import Pages from "src/components/navigation/Pages.astro";
 import Search from "src/components/navigation/Search.astro";
 import Theme from "src/components/navigation/Theme.astro";
+import type { TPages } from "src/types";
 
 const pages = {
   Home: "/",
@@ -18,9 +19,11 @@ const socials = {
 
 const groupedLinks = { ...pages, ...socials };
 
-export interface Props {
-  activeNav?: "posts" | "home" | "about" | "search";
+interface Props {
+  activeNav?: TPages;
 }
+
+const { activeNav } = Astro.props;
 ---
 
 <header>
@@ -29,7 +32,7 @@ export interface Props {
     <div class="hidden items-center justify-between sm:flex">
       <Links socials={socials} />
       <ul class="flex gap-5">
-        <Pages pages={pages} />
+        <Pages pages={pages} activeNav={activeNav} />
         <Search />
         <Theme />
       </ul>
