@@ -17,6 +17,10 @@ const socials = {
 };
 
 const groupedLinks = { ...pages, ...socials };
+
+export interface Props {
+  activeNav?: "posts" | "home" | "about" | "search";
+}
 ---
 
 <header>
