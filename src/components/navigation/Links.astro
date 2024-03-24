@@ -16,7 +16,7 @@ const { socials } = Astro.props;
   <span
     class="opacity-100 transition-opacity duration-300 group-hover:opacity-0"
   >
-    Links <span>{"> > >"}</span>
+    Social Links <span>{"> > >"}</span>
   </span>
   <ul
     class="absolute top-0.5 flex items-center justify-center gap-2
@@ -25,7 +25,10 @@ const { socials } = Astro.props;
     {
       Object.entries(socials).map(([label, href]) => (
         <li>
-          <ButtonLink href={href}>
+          <ButtonLink
+            href={href}
+            className="hover:fill-primary-foreground hover:rotate-12 fill-primary"
+          >
             <Icon icon={label} />
           </ButtonLink>
         </li>
