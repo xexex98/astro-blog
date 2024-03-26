@@ -1,58 +1,79 @@
 ---
 import ButtonLink from "src/components/ButtonLink.astro";
 interface Props {
-  links: { [key: string]: string };
+  pages: { [key: string]: string };
+  socials: { [key: string]: string };
 }
-const { links } = Astro.props;
+const { pages, socials } = Astro.props;
 ---
 
-<div class="text-right">
-  <div class="relative h-[24px] sm:hidden">
-    <button class="hamburger hamburger--vortex" type="button">
+<div class="text-end">
+  <div class="">
+    <button
+      class="hamburger hamburger--vortex sm:hidden"
+      aria-label="Open Menu"
+      aria-expanded="false"
+      aria-controls="menu-items"
+      type="button"
+    >
       <span class="hamburger-box">
         <span class="hamburger-inner"></span>
       </span>
     </button>
     <ul
-      id="menu"
-      class="absolute right-0 hidden flex-col rounded bg-purple-500"
+      id="menu-items"
+      class="hidden flex-col items-center justify-center sm:flex"
     >
       {
-        Object.entries(links).map(([label, href]) => {
+        Object.entries(pages).map(([label, href]) => {
           return (
-            <ButtonLink href={href} title={label} className="text-sm px-5 py-1">
-              {label}
-            </ButtonLink>
+            <li>
+              <ButtonLink
+                href={href}
+                title={label}
+                className="text-sm px-5 py-1"
+              >
+                {label}
+              </ButtonLink>
+            </li>
           );
         })
       }
     </ul>
   </div>
 </div>
+<style></style>
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const burger = document.querySelector(".hamburger");
-    const menu = document.getElementById("menu");
+  function toggleNav() {
+    const menuBtn = document.querySelector(".hamburger");
+    const menuItems = document.querySelector("#menu-items");
 
-    burger?.addEventListener("click", () => {
-      burger?.classList.toggle("is-active");
-      if (menu?.classList.contains("flex")) {
-        menu?.classList.replace("flex", "hidden");
-      } else {
-        menu?.classList.replace("hidden", "flex");
-      }
+    menuBtn?.addEventListener("click", () => {
+      const menuExpanded = menuBtn.getAttribute("aria-expanded") === "true";
+      menuBtn?.classList.toggle("is-active");
+      menuBtn.setAttribute("aria-expanded", menuExpanded ? "false" : "true");
+      menuBtn.setAttribute(
+        "aria-label",
+        menuExpanded ? "Open Menu" : "Close Menu"
+      );
+      menuItems?.classList.toggle("hidden");
     });
+
     document.addEventListener("click", e => {
       if (
-        menu &&
-        burger &&
-        menu?.classList.contains("flex") &&
-        !menu.contains(e.target as Node) &&
-        !burger.contains(e.target as Node)
+        menuItems &&
+        menuBtn &&
+        menuItems?.classList.contains("flex") &&
+        !menuItems.contains(e.target as Node) &&
+        !menuBtn.contains(e.target as Node)
       ) {
-        menu?.classList.replace("flex", "hidden");
-        burger?.classList.toggle("is-active");
+        menuItems?.classList.replace("flex", "hidden");
+        menuBtn?.classList.toggle("is-active");
       }
     });
-  });
+  }
+
+  toggleNav();
+
+  document.addEventListener("astro:after-swap", toggleNav);
 </script>
